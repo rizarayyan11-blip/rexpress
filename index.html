@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rexpress - Jadwal Kereta Api</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+header {
+    background: #0f172a;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 30px;
+}
+
+header p {
+    color: #cbd5e1;
+}
+
+.hero {
+    background: linear-gradient(135deg, #1d4ed8, #0f172a);
+    color: white;
+    padding: 45px 20px;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 28px;
+}
+
+.search-box {
+    background: white;
+    color: #1e293b;
+    max-width: 450px;
+    margin: 25px auto 0;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: left;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    margin: 8px 0 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: #f97316;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ea580c;
+}
+
+.container {
+    max-width: 850px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 10px #00000010;
+}
+
+.card h3 {
+    color: #1d4ed8;
+}
+
+footer {
+    background: #0f172a;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🚆 Rexpress</h1>
+    <p>Informasi Perjalanan Kereta Api Indonesia</p>
+</header>
+
+<section class="hero">
+    <h2>Jelajahi Perjalananmu</h2>
+    <p>Cari informasi perjalanan kereta api dengan mudah.</p>
+
+    <div class="search-box">
+        <label>Stasiun Asal</label>
+        <input type="text" id="asal" placeholder="Contoh: Jombang">
+
+        <label>Stasiun Tujuan</label>
+        <input type="text" id="tujuan" placeholder="Contoh: Surabaya">
+
+        <button onclick="cariKereta()">Cari Kereta</button>
+    </div>
+</section>
+
+<div class="container">
+    <h2>Informasi</h2>
+
+    <div class="card">
+        <h3>🚉 Jadwal Kereta</h3>
+        <p>Temukan informasi perjalanan kereta api dari stasiun pilihanmu.</p>
+    </div>
+
+    <div class="card">
+        <h3>🗺️ Rute Perjalanan</h3>
+        <p>Rencanakan perjalananmu dengan mengetahui stasiun asal dan tujuan.</p>
+    </div>
+
+    <div class="card">
+        <h3>ℹ️ Tentang Rexpress</h3>
+        <p>Rexpress adalah proyek website informasi kereta api Indonesia yang sedang dikembangkan.</p>
+    </div>
+
+    <div id="hasil"></div>
+</div>
+
+<footer>
+    <p>© 2026 Rexpress | Dibuat oleh pecinta kereta api 🚆</p>
+</footer>
+
+<script>
+function cariKereta() {
+    const asal = document.getElementById("asal").value.trim();
+    const tujuan = document.getElementById("tujuan").value.trim();
+    const hasil = document.getElementById("hasil");
+
+    if (!asal || !tujuan) {
+        hasil.innerHTML = `
+            <div class="card">
+                <p>⚠️ Silakan isi stasiun asal dan tujuan terlebih dahulu.</p>
+            </div>`;
+        return;
+    }
+
+    hasil.innerHTML = `
+        <div class="card">
+            <h3>Hasil Pencarian</h3>
+            <p>Stasiun asal: <b>${asal}</b></p>
+            <p>Stasiun tujuan: <b>${tujuan}</b></p>
+            <p>Fitur jadwal perjalanan sedang dikembangkan.</p>
+        </div>`;
+}
+</script>
+
+</body>
+</html>
