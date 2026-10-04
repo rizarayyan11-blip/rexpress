@@ -465,12 +465,21 @@ const tujuanInput = document.getElementById("tujuan");
 const tanggalInput = document.getElementById("tanggal");
 
 const today = new Date();
-const localDate = new Date(
-  today.getTime() - today.getTimezoneOffset() * 60000
-).toISOString().split("T")[0];
+today.setHours(0, 0, 0, 0);
 
-tanggalInput.min = localDate;
-tanggalInput.value = localDate;
+const maxDate = new Date(today);
+maxDate.setDate(maxDate.getDate() + 45);
+
+const formatDate = (date) => {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+};
+
+tanggalInput.min = formatDate(today);
+tanggalInput.max = formatDate(maxDate);
+tanggalInput.value = formatDate(today);
 
 document.getElementById("swapBtn").addEventListener("click", function() {
   const temp = asalInput.value;
