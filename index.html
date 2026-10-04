@@ -56,7 +56,6 @@ header {
 .header-label {
   font-size: 13px;
   color: var(--muted);
-  font-weight: 500;
 }
 
 .hero {
@@ -65,15 +64,11 @@ header {
     linear-gradient(120deg, #102b4e 0%, #145b9a 100%);
   color: white;
   padding: 65px 8% 125px;
-  position: relative;
-  overflow: hidden;
 }
 
 .hero-content {
   max-width: 1100px;
   margin: auto;
-  position: relative;
-  z-index: 1;
 }
 
 .eyebrow {
@@ -83,15 +78,12 @@ header {
   padding: 7px 13px;
   border-radius: 30px;
   font-size: 12px;
-  font-weight: 600;
   margin-bottom: 20px;
-  color: #e3f1ff;
 }
 
 .hero h1 {
   font-size: clamp(32px, 5vw, 48px);
   line-height: 1.15;
-  letter-spacing: -1.5px;
   max-width: 650px;
   margin-bottom: 16px;
 }
@@ -108,14 +100,13 @@ header {
   width: 84%;
   margin: -75px auto 0;
   position: relative;
-  z-index: 2;
 }
 
 .search-card {
   background: white;
   border-radius: 22px;
   padding: 32px;
-  box-shadow: 0 18px 55px rgba(17, 47, 82, .12);
+  box-shadow: 0 18px 55px rgba(17,47,82,.12);
 }
 
 .card-heading {
@@ -154,10 +145,6 @@ header {
   align-items: end;
 }
 
-.field {
-  position: relative;
-}
-
 .field label {
   display: block;
   font-size: 13px;
@@ -176,7 +163,6 @@ header {
   color: var(--text);
   outline: none;
   background: #fbfcfe;
-  transition: .2s;
 }
 
 .field input:focus {
@@ -199,13 +185,6 @@ header {
   border-radius: 50%;
   cursor: pointer;
   font-size: 20px;
-  transition: .2s;
-}
-
-.swap-btn:hover {
-  background: var(--blue);
-  color: white;
-  transform: rotate(180deg);
 }
 
 .search-btn {
@@ -220,13 +199,10 @@ header {
   font-size: 15px;
   font-weight: 700;
   cursor: pointer;
-  transition: .2s;
-  box-shadow: 0 6px 15px rgba(255,138,38,.2);
 }
 
 .search-btn:hover {
   background: #ed7917;
-  transform: translateY(-1px);
 }
 
 .result-section {
@@ -236,9 +212,6 @@ header {
 }
 
 .result-heading {
-  display: flex;
-  align-items: center;
-  gap: 10px;
   margin-bottom: 18px;
 }
 
@@ -257,18 +230,108 @@ header {
   line-height: 1.8;
 }
 
-.result-box strong {
-  color: var(--text);
+.train-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px;
+  margin-bottom: 14px;
 }
 
-.result-box a {
-  color: var(--blue);
+.train-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.train-name {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.train-class {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.train-times {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+}
+
+.train-time {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.train-station {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.train-duration {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.train-line {
+  height: 2px;
+  background: #dce8f3;
+  margin: 8px 0;
+  position: relative;
+}
+
+.train-line:after {
+  content: "●";
+  position: absolute;
+  right: 0;
+  top: -9px;
+  color: var(--orange);
+}
+
+.train-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid var(--border);
+  margin-top: 20px;
+  padding-top: 18px;
+}
+
+.status {
+  font-size: 12px;
   font-weight: 700;
-  text-decoration: none;
+  color: #b45309;
 }
 
-.result-box a:hover {
-  text-decoration: underline;
+.book-btn {
+  display: inline-block;
+  background: var(--orange);
+  color: white;
+  text-decoration: none;
+  padding: 11px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.notice {
+  background: #fff8e9;
+  border: 1px solid #f6dfad;
+  color: #805b15;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 16px;
 }
 
 footer {
@@ -283,21 +346,7 @@ footer strong {
   color: white;
 }
 
-@media (min-width: 800px) {
-  .form-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-
-  .swap-row {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: -45px;
-    z-index: 2;
-  }
-}
-
-@media (max-width: 799px) {
+@media(max-width:799px) {
   header {
     height: 65px;
     padding: 0 6%;
@@ -315,10 +364,6 @@ footer strong {
     font-size: 32px;
   }
 
-  .hero p {
-    font-size: 14px;
-  }
-
   .search-wrap,
   .result-section {
     width: 90%;
@@ -326,24 +371,32 @@ footer strong {
 
   .search-card {
     padding: 23px 19px;
-    border-radius: 18px;
   }
 
   .form-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
   }
 
   .swap-row {
     margin: 14px 0;
   }
 
-  .search-btn {
-    margin-top: 20px;
+  .train-card {
+    padding: 17px;
   }
 
-  .result-section {
-    margin-top: 30px;
+  .train-time {
+    font-size: 19px;
+  }
+
+  .train-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .book-btn {
+    text-align: center;
+    width: 100%;
   }
 }
 </style>
@@ -366,7 +419,6 @@ footer strong {
 
 <section class="search-wrap">
   <div class="search-card">
-
     <div class="card-heading">
       <div class="heading-icon">⌕</div>
       <div>
@@ -377,34 +429,20 @@ footer strong {
 
     <form id="searchForm">
       <div class="form-grid">
-
         <div class="field">
           <label for="asal">Stasiun Asal</label>
-          <input
-            type="text"
-            id="asal"
-            placeholder="Pilih stasiun asal"
-            list="stations"
-            required
-          >
+          <input type="text" id="asal" placeholder="Pilih stasiun asal" list="stations" required>
         </div>
 
         <div class="field">
           <label for="tujuan">Stasiun Tujuan</label>
-          <input
-            type="text"
-            id="tujuan"
-            placeholder="Pilih stasiun tujuan"
-            list="stations"
-            required
-          >
+          <input type="text" id="tujuan" placeholder="Pilih stasiun tujuan" list="stations" required>
         </div>
 
         <div class="field">
           <label for="tanggal">Tanggal Keberangkatan</label>
           <input type="date" id="tanggal" required>
         </div>
-
       </div>
 
       <div class="swap-row">
@@ -435,7 +473,6 @@ footer strong {
       <option value="Jember">
       <option value="Ketapang">
     </datalist>
-
   </div>
 </section>
 
@@ -444,10 +481,8 @@ footer strong {
     <h2>Hasil Pencarian</h2>
   </div>
 
-  <div class="result-box" id="result">
+  <div id="result" class="result-box">
     Masukkan stasiun asal, tujuan, dan tanggal keberangkatan untuk mulai mencari perjalanan.
-    <br><br>
-    <strong>Catatan:</strong> Database jadwal kereta Rexpress sedang dikembangkan.
   </div>
 </section>
 
@@ -464,18 +499,31 @@ const asalInput = document.getElementById("asal");
 const tujuanInput = document.getElementById("tujuan");
 const tanggalInput = document.getElementById("tanggal");
 
+/*
+  TEMPAT INTEGRASI API RESMI KAI
+
+  Setelah backend dan akses data resmi tersedia,
+  isi API_URL dengan alamat server Rexpress.
+
+  Contoh format:
+  const API_URL = "https://server-anda.example/api/jadwal";
+
+  Jangan menaruh API key rahasia di file ini.
+*/
+const API_URL = "";
+
+function formatDate(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
 const today = new Date();
 today.setHours(0, 0, 0, 0);
 
 const maxDate = new Date(today);
 maxDate.setDate(maxDate.getDate() + 45);
-
-const formatDate = (date) => {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-  return `${year}-${month}-${day}`;
-};
 
 tanggalInput.min = formatDate(today);
 tanggalInput.max = formatDate(maxDate);
@@ -487,7 +535,94 @@ document.getElementById("swapBtn").addEventListener("click", function() {
   tujuanInput.value = temp;
 });
 
-form.addEventListener("submit", function(event) {
+function showMessage(message) {
+  result.innerHTML = `<div>${message}</div>`;
+}
+
+function formatDuration(minutes) {
+  const hours = Math.floor(minutes / 60);
+  const remaining = minutes % 60;
+  return `${hours} jam ${remaining} menit`;
+}
+
+function renderTrains(trains) {
+  if (!Array.isArray(trains) || trains.length === 0) {
+    showMessage("Tidak ditemukan jadwal untuk perjalanan ini.");
+    return;
+  }
+
+  result.innerHTML = "";
+
+  trains.forEach(train => {
+    const card = document.createElement("div");
+    card.className = "train-card";
+
+    const top = document.createElement("div");
+    top.className = "train-top";
+
+    const info = document.createElement("div");
+
+    const name = document.createElement("div");
+    name.className = "train-name";
+    name.textContent = train.name || "Nama kereta tidak tersedia";
+
+    const trainClass = document.createElement("div");
+    trainClass.className = "train-class";
+    trainClass.textContent = train.class || "Kelas belum tersedia";
+
+    info.append(name, trainClass);
+    top.append(info);
+
+    const times = document.createElement("div");
+    times.className = "train-times";
+
+    const departure = document.createElement("div");
+    departure.innerHTML = `
+      <div class="train-time"></div>
+      <div class="train-station"></div>
+    `;
+    departure.querySelector(".train-time").textContent = train.departure || "--:--";
+    departure.querySelector(".train-station").textContent = train.origin || "";
+
+    const middle = document.createElement("div");
+    middle.innerHTML = `
+      <div class="train-duration"></div>
+      <div class="train-line"></div>
+    `;
+    middle.querySelector(".train-duration").textContent =
+      train.duration || "Durasi belum tersedia";
+
+    const arrival = document.createElement("div");
+    arrival.innerHTML = `
+      <div class="train-time"></div>
+      <div class="train-station"></div>
+    `;
+    arrival.querySelector(".train-time").textContent = train.arrival || "--:--";
+    arrival.querySelector(".train-station").textContent = train.destination || "";
+
+    times.append(departure, middle, arrival);
+
+    const bottom = document.createElement("div");
+    bottom.className = "train-bottom";
+
+    const status = document.createElement("div");
+    status.className = "status";
+    status.textContent = train.availability || "Ketersediaan belum diketahui";
+
+    const book = document.createElement("a");
+    book.className = "book-btn";
+    book.href = "https://booking.kai.id/";
+    book.target = "_blank";
+    book.rel = "noopener noreferrer";
+    book.textContent = "Pesan di sini!";
+
+    bottom.append(status, book);
+    card.append(top, times, bottom);
+    result.appendChild(card);
+  });
+}
+
+form.addEventListener("submit", async function(event) {
   event.preventDefault();
 
   const asal = asalInput.value.trim();
@@ -495,37 +630,60 @@ form.addEventListener("submit", function(event) {
   const tanggal = tanggalInput.value;
 
   if (asal.toLowerCase() === tujuan.toLowerCase()) {
-    result.innerHTML = "<strong>Stasiun asal dan tujuan tidak boleh sama.</strong>";
+    showMessage("Stasiun asal dan tujuan tidak boleh sama.");
     return;
   }
 
-  const tanggalFormat = new Date(
-    tanggal + "T00:00:00"
-  ).toLocaleDateString("id-ID", {
-    day: "numeric",
-    month: "long",
-    year: "numeric"
-  });
+  if (!tanggal || tanggal < tanggalInput.min || tanggal > tanggalInput.max) {
+    showMessage("Pilih tanggal keberangkatan antara hari ini dan 45 hari ke depan.");
+    return;
+  }
 
-  result.innerHTML = `
-    <strong>Pencarian perjalanan berhasil!</strong>
-    <br><br>
-    Stasiun asal: ${asal}
-    <br>
-    Stasiun tujuan: ${tujuan}
-    <br>
-    Tanggal keberangkatan: ${tanggalFormat}
-    <br><br>
-    Jadwal kereta untuk rute ini belum tersedia di Rexpress.
-    Database jadwal sedang dikembangkan.
-    <br><br>
-    Untuk informasi dan pemesanan resmi, kunjungi
-    <a href="https://booking.kai.id/" target="_blank" rel="noopener noreferrer">
-      situs resmi KAI
-    </a>.
-  `;
+  if (!API_URL) {
+    showMessage(`
+      <div class="notice">
+        <strong>Rexpress sedang disiapkan untuk integrasi data resmi.</strong><br>
+        Formulir pencarian sudah berfungsi, tetapi jadwal dan ketersediaan tiket belum dapat ditampilkan karena server data resmi belum terhubung.
+      </div>
+      <strong>Perjalanan yang dicari:</strong><br>
+      Asal: ${asal}<br>
+      Tujuan: ${tujuan}<br>
+      Tanggal: ${new Date(tanggal + "T00:00:00").toLocaleDateString("id-ID", {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      })}<br><br>
+      Silakan lanjutkan pencarian dan pemesanan melalui
+      <a href="https://booking.kai.id/" target="_blank" rel="noopener noreferrer">situs resmi KAI</a>.
+    `);
+    return;
+  }
+
+  showMessage("Sedang mencari jadwal...");
+
+  try {
+    const params = new URLSearchParams({
+      origin: asal,
+      destination: tujuan,
+      date: tanggal
+    });
+
+    const response = await fetch(`${API_URL}?${params.toString()}`);
+
+    if (!response.ok) {
+      throw new Error("Server tidak merespons dengan benar.");
+    }
+
+    const data = await response.json();
+    renderTrains(data.trains);
+
+  } catch (error) {
+    console.error(error);
+    showMessage("Maaf, jadwal belum dapat dimuat. Silakan coba lagi nanti.");
+  }
 });
 </script>
 
 </body>
 </html>
+
