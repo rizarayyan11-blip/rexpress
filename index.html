@@ -602,20 +602,6 @@ function renderTrains(trains) {
 
     times.append(departure, middle, arrival);
 
-    const bottom = document.createElement("div");
-    bottom.className = "train-bottom";
-
-    const status = document.createElement("div");
-    status.className = "status";
-    status.textContent = train.availability || "Ketersediaan belum diketahui";
-
-    const book = document.createElement("a");
-    book.className = "book-btn";
-    book.href = "https://booking.kai.id/";
-    book.target = "_blank";
-    book.rel = "noopener noreferrer";
-    book.textContent = "Pesan di Web Resmi KAI";
-
     bottom.append(status, book);
     card.append(top, times, bottom);
     result.appendChild(card);
