@@ -15,21 +15,43 @@ export default async function handler(req, res) {
     });
   }
 
-  // Persiapan endpoint resmi KAI B2B Get Schedule
+  const kaiUid = process.env.KAI_UID;
+
+  // Belum ada UID resmi KAI
+  if (!kaiUid) {
+    return res.status(503).json({
+      success: false,
+      message: "KAI API belum dikonfigurasi.",
+      detail: "KAI_UID belum tersedia di environment variable."
+    });
+  }
+
   const kaiUrl =
     `https://resapib2bdev.kai.id/apieks/info/get_schedule/` +
     `${encodeURIComponent(origin)}/` +
     `${encodeURIComponent(destination)}/` +
     `${encodeURIComponent(date)}`;
 
-  return res.status(200).json({
-    success: true,
-    message: "Endpoint Get Schedule KAI sudah disiapkan.",
-    request: {
-      origin,
-      destination,
-      date
-    },
-    kai_endpoint: kaiUrl
-  });
+  try {
+    const response = await fetch(kaiUrl, {
+      method: "GET",
+      headers: {
+        uid: kaiUid
+      }
+    });
+
+    const data = await response.json();
+
+    return res.status(response.status).json({
+      success: response.ok,
+      data
+    });
+
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Gagal menghubungi API KAI.",
+      error: error.message
+    });
+  }
 }
