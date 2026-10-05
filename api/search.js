@@ -1,37 +1,35 @@
-
-export default function handler(req, res) {
-  if (req.method !== "GET") {
-    return res.status(405).json({
-      success: false,
-      message: "Metode tidak diizinkan"
-    });
-  }
-
+export default async function handler(req, res) {
   const { origin, destination, date } = req.query;
 
   if (!origin || !destination || !date) {
     return res.status(400).json({
       success: false,
-      message: "Stasiun asal, tujuan, dan tanggal wajib diisi"
+      message: "Asal, tujuan, dan tanggal wajib diisi."
     });
   }
 
-  if (origin.toLowerCase() === destination.toLowerCase()) {
+  if (origin === destination) {
     return res.status(400).json({
       success: false,
-      message: "Stasiun asal dan tujuan tidak boleh sama"
+      message: "Stasiun asal dan tujuan tidak boleh sama."
     });
   }
+
+  // Persiapan endpoint resmi KAI B2B Get Schedule
+  const kaiUrl =
+    `https://resapib2bdev.kai.id/apieks/info/get_schedule/` +
+    `${encodeURIComponent(origin)}/` +
+    `${encodeURIComponent(destination)}/` +
+    `${encodeURIComponent(date)}`;
 
   return res.status(200).json({
     success: true,
-    project: "Rexpress",
-    search: {
+    message: "Endpoint Get Schedule KAI sudah disiapkan.",
+    request: {
       origin,
       destination,
       date
     },
-    data: [],
-    message: "Permintaan pencarian berhasil diterima. Data jadwal KAI belum terhubung."
+    kai_endpoint: kaiUrl
   });
 }
