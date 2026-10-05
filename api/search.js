@@ -17,12 +17,10 @@ export default async function handler(req, res) {
 
   const kaiUid = process.env.KAI_UID;
 
-  // Belum ada UID resmi KAI
   if (!kaiUid) {
     return res.status(503).json({
       success: false,
-      message: "KAI API belum dikonfigurasi.",
-      detail: "KAI_UID belum tersedia di environment variable."
+      message: "KAI API belum dikonfigurasi."
     });
   }
 
@@ -40,18 +38,46 @@ export default async function handler(req, res) {
       }
     });
 
-    const data = await response.json();
+    const result = await response.json();
 
-    return res.status(response.status).json({
-      success: response.ok,
-      data
+    if (!response.ok || result.code !== "00") {
+      return res.status(response.status || 502).json({
+        success: false,
+        message: result.message || "Gagal mengambil jadwal KAI."
+      });
+    }
+
+    const trains = (result.payload || []).map((item) => {
+      const fare = item.fares?.find(
+        (fare) => fare.passengertype === "A"
+      );
+
+      return {
+        name: item.trainname,
+        number: item.noka,
+        origin: item.stasiunorgcode,
+        destination: item.stasiundestcode,
+        departure: item.departuretime,
+        arrival: item.arrivaltime,
+        departureDate: item.departdate,
+        arrivalDate: item.arrivaldate,
+        class: item.wagonclasscode,
+        availability: item.availability,
+        price: fare ? Number(fare.amount) : null
+      };
+    });
+
+    return res.status(200).json({
+      success: true,
+      trains
     });
 
   } catch (error) {
+    console.error(error);
+
     return res.status(500).json({
       success: false,
-      message: "Gagal menghubungi API KAI.",
-      error: error.message
+      message: "Gagal menghubungi API KAI."
     });
   }
 }
